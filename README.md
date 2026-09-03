@@ -116,4 +116,4 @@
 
 ## 관련 문서
 
-- [올리브영(OY) 시딩 집계 — 수량 · 비용](docs/oliveyoung-seeding-summary.md) : BAT이 올리브영/올리브영PB 대상으로 집행한 시딩의 브랜드별·월별 수량과 비용 누적 집계
+- [올리브영(OY) 시딩 집계 — 수량 · 비용](docs/oliveyoung-seeding-summary.md) : 세금계산서 총액 기준 누적 931,288,075원 / IMD 기준 2,050건. 브랜드별·월별 수량·비용 집계
