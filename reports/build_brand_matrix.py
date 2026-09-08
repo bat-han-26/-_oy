@@ -75,8 +75,8 @@ S = lambda col: '=SUM(' + ','.join(f'{col}{r}' for r in nn) + ')'
 ws.cell(RS, 1, '소계')
 for col in 'BCDEG': ws.cell(RS, ord(col) - 64, S(col))
 ws.cell(RS, 6, f'=ROUND(E{RS}/{D.PERF},0)')
-ws.cell(RS, 8, f'=ROUND({D.COST}/E{RS},1)')
-ws.cell(RS, 9, f'=ROUND({D.COST}/G{RS},0)')
+ws.cell(RS, 8, f'=ROUND({D.INV_TOT}/E{RS},1)')   # 소계 CPV: 세금계산서 발행 총액 기준
+ws.cell(RS, 9, f'=ROUND({D.INV_TOT}/G{RS},0)')   # 소계 CPE: 세금계산서 발행 총액 기준
 ws.cell(RS, 10, S('J')); ws.cell(RS, 11, S('K'))
 ws.cell(RS, 12, f'=K{RS}/J{RS}'); ws.cell(RS, 13, '-')
 
@@ -103,7 +103,9 @@ ws.sheet_properties.pageSetUpPr.fitToPage = True
 
 n = RS + 2
 for t in [f'※ 수량은 전체 {D.QTY:,}건, 조회수·참여수는 성과 집계 {D.PERF:,}건 기준 (미집계 {D.UNPERF}건 = 바이오힐보 US 32 · 웨이크메이크 JP 26.09 21)',
-          f'※ 참여수 = 좋아요+댓글 · 평균 조회수 = 조회수÷성과 집계 건수 · 평균 CPV = 시딩 비용÷조회수 · 평균 CPE = 시딩 비용÷참여수 (시딩 비용 확인분 {D.COST:,}원) · ROAS = 전환 매출÷광고비',
+          f'※ 참여수 = 좋아요+댓글 · 평균 조회수 = 조회수÷성과 집계 건수 · ROAS = 전환 매출÷광고비',
+          f'※ 소계의 평균 CPV·CPE는 세금계산서 발행 총액 {D.INV_TOT:,}원 기준 (2026.02~08 확정 {D.INV_2026:,} + 2025 시딩 정산 {D.INV_2025:,})',
+          f'※ 브랜드별 평균 CPV·CPE는 브랜드 귀속이 확인된 시딩 비용 {D.COST:,}원 기준(국내는 원고료, 바이오힐보 해외는 청구액) — 발행 총액은 브랜드 귀속 미확정으로 안분하지 않음',
           f'※ 좋아요 공란 {D.LIKE_BLANK}건은 추정하지 않음 → 참여수는 하한, 평균 CPE는 상한. 바이오힐보 (국내)·(해외) 행은 참고용이며 소계에 포함하지 않음']:
     c = ws.cell(n, 1, t); c.font = F(8, color='808080'); c.alignment = LFT
     ws.merge_cells(start_row=n, start_column=1, end_row=n, end_column=13); n += 1
