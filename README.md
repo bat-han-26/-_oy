@@ -144,4 +144,5 @@
 
 **데이터 단일 원천** — `reports/data.py`. 모든 산출물이 이 파일에서만 값을 읽고, 저장 전 21항목 자체 검증(합계 정합·원천 대조)을 통과하지 않으면 파일을 쓰지 않는다.
 
+- [OYPB UGC 협업단가·광고성과 2P (PPT)](reports/ppt/OYPB_UGC_%ED%98%91%EC%97%85%EB%8B%A8%EA%B0%80_%EA%B4%91%EA%B3%A0%EC%84%B1%EA%B3%BC_2P_HAN_260907.pptx) : 52p 협업 단가 5카드 + 53p 광고 성과 4카드. 생성 스크립트 `reports/ppt/build2p.js`
 - [작업용 상세 집계 (아카이브)](reports/_archive_올리브영_시딩_집계_260901.xlsx) : 14시트 작업본. 검증 이력·중간 계산 포함
